@@ -42,7 +42,7 @@ class Game:
         
         
     def load(self):
-        self.map = Map('Final_Game_Map.txt')
+        self.map = Map('Beta_Map.txt')
 
     
     def new_char(self):
@@ -363,3 +363,4 @@ class Game:
 game = Game()
 game.new_char()
 game.Start_Screen()
+
