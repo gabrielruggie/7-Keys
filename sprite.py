@@ -101,16 +101,18 @@ class Character(pygame.sprite.Sprite):
         self.left = -1
         self.damage = 5
         self.health = 100
-        self.AttackRange = 130
+        self.AttackRange = 132
         self.MaxHealth = 100
         '''armour adds to this value allowing the user to heal up to higher health'''
         self.in_GhostAttackRange = False
         self.in_DogAttackRange = False
         self.in_ClownAttackRange = False
+        self.in_BossAttackRange = False
         self.groupA = groupA
         self.groupB = groupB
         self.groupC = groupC
         self.groupD = groupD
+        #self.groupE = groupE
         self.coins = 0
         self.keys = []
         
@@ -279,6 +281,9 @@ class Character(pygame.sprite.Sprite):
             hit.health -= self.damage
             self.image = attacking[ATTACK//1]
             ATTACK += 1
+
+    def Boss_hit(self):
+        pass
 
         '''Add more groups and just do this again and again for each group'''
                 
@@ -545,6 +550,7 @@ class Fire(pygame.sprite.Sprite):
         self.y = y
         self.rect.x = x*32
         self.rect.y = y*32
+
         
         
         
