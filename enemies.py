@@ -76,7 +76,10 @@ class Ghost(pygame.sprite.Sprite):
                 self.image = sitting[SIT//1]
                 SIT += 1
         if self.health <= 0:
+            for player in self.player.players:
+                player.coins += 1
             self.kill()
+            
                 
     def move(self, player):
         dx, dy = player.x * 32 - self.rect.x, player.y * 32 - self.rect.y
@@ -127,6 +130,8 @@ class Dog(pygame.sprite.Sprite):
                 self.move(player)
                 
         if self.health <= 0:
+            for player in self.player.players:
+                player.coins += 1
             self.kill()
             
                         
@@ -196,6 +201,8 @@ class Clown(pygame.sprite.Sprite):
                 self.image = CLOWN
                 
         if self.health <= 0:
+            for player in self.player.players:
+                player.coins += 2
             self.kill()
 
 
@@ -243,4 +250,14 @@ class BOSS(pygame.sprite.Sprite):
         self.range = 100
         self.inRange = False
         self.damage = 8
-        self.speed_index = 1.1
+        self.speed_index = 1
+
+    def update(self):
+        pass
+
+    def move(self, player):
+        pass
+
+    def attack(self, player):
+        pass
+        
